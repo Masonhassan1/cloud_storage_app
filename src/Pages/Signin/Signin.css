@@ -38,6 +38,10 @@
   font-family: "poppins";
   padding: 0;
 }
+.credential {
+  display: flex;
+  gap: 10px;
+}
 @media (max-width: 600px) {
   .signInForm {
     margin: 10px;

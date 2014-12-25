@@ -20,7 +20,6 @@ import VisibilityOff from "@mui/icons-material/VisibilityOff";
 import axios from "axios";
 //
 import { green } from "@mui/material/colors";
-
 import { useSelector, useDispatch } from "react-redux";
 import {
   login_starts,
@@ -33,6 +32,7 @@ import { BASEURL } from "../../Url";
 function Signin() {
   const dispatch = useDispatch();
   const { isFetching, error } = useSelector((state) => state.user);
+  const [isLoading, setIsLoading] = useState(false);
 
   const [showPassword, setShowPassword] = useState(false);
 
@@ -68,6 +68,25 @@ function Signin() {
         history.push("/");
       })
       .catch((err) => dispatch(login_failed(err.response.data.message))); //error message
+  };
+
+  //demo credential
+  const handleSignin = () => {
+    const signinUser = {
+      email: "test@gmail.com",
+      password: "Test@123",
+    };
+    // dispatch(login_starts());
+    setIsLoading(true);
+    axios
+      .post(`${BASEURL}/auth/signin`, signinUser)
+      .then((res) => {
+        localStorage.setItem("token", res.data.token);
+        setIsLoading(false);
+        dispatch(login_successful(res.data.loginData)); // user info will stored in local storage and pass the data to all components via redux
+        history.push("/");
+      })
+      .catch(() => setIsLoading(false)); //error message
   };
 
   return (
@@ -144,6 +163,32 @@ function Signin() {
               />
             ) : (
               ""
+            )}
+          </Button>
+          <Button
+            onClick={handleSignin}
+            disabled={isLoading}
+            sx={{
+              borderRadius: "5px",
+              boxShadow: "none",
+              padding: "5px",
+            }}
+            variant="contained"
+            color="success"
+          >
+            <p className="optionBtn">Sign in with demo credential</p>
+            {isLoading && (
+              <CircularProgress
+                size={24}
+                sx={{
+                  color: green[500],
+                  position: "absolute",
+                  top: "50%",
+                  left: "50%",
+                  marginTop: "-12px",
+                  marginLeft: "-12px",
+                }}
+              />
             )}
           </Button>
         </div>
