@@ -22,7 +22,7 @@ import {
   api_call_starts,
   api_call_success,
 } from "../../Redux/action/fileAction";
-
+import { BASEURL } from "../../Url";
 //add new files
 function NewFile() {
   const [open, setOpen] = useState(false); //dialog box
@@ -54,7 +54,7 @@ function NewFile() {
       userId: _id,
     };
     axios
-      .post("http://localhost:9000/file", data)
+      .post(`${BASEURL}/file`, data)
       .then((res) => {
         setOpen(false);
         setFile("");

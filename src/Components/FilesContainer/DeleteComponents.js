@@ -15,6 +15,7 @@ import {
   api_call_success,
 } from "../../Redux/action/fileAction";
 import { toast } from "react-toastify";
+import { BASEURL } from "../../Url";
 
 //delete dialog box
 const Transition = React.forwardRef(function Transition(props, ref) {
@@ -26,7 +27,7 @@ export function DeleteAccDialogBtn({ dialogOpen, setDialogOpen, fileObj }) {
   const handleDelete = () => {
     dispatch(api_call_starts());
     axios
-      .delete(`http://localhost:9000/file/${fileObj._id}`)
+      .delete(`${BASEURL}/file/${fileObj._id}`)
       .then(() => {
         toast.success(`${fileObj.fileName} is deleted successfully`);
         setDialogOpen(false);
