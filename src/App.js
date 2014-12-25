@@ -1,23 +1,48 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import Dashboard from "./Components/Dashboard.";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import { Suspense } from "react";
+import { Switch, Route } from "react-router-dom";
+import Loader from "./Components/Loader";
+import { openRouter } from "./Router/OpenRouterData";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <ToastContainer
+        position="top-center"
+        autoClose={3000}
+        hideProgressBar
+        newestOnTop
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="colored"
+      />
+      <Suspense fallback={<Loader />}>
+        <Switch>
+          {/* open route */}
+          {openRouter.map((route, index) => {
+            return (
+              <Route
+                path={route.path}
+                component={route.component}
+                exact={route.exact}
+                key={index}
+              />
+            );
+          })}
+          {/* protected route */}
+          <Route
+            path="/"
+            name="protected pages"
+            render={(props) => <Dashboard {...props} />}
+          />
+        </Switch>
+      </Suspense>
     </div>
   );
 }

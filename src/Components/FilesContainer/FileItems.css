@@ -1,0 +1,79 @@
+.imageContainer img {
+  cursor: pointer;
+  position: relative;
+}
+.menuIcon {
+  position: relative;
+  top: -25px;
+  left: 180px;
+}
+.css-14q7c0c-MuiImageListItemBar-titleWrap {
+  padding: 5px !important;
+}
+.poper {
+  padding: 10px;
+  background-color: black;
+  color: white;
+}
+.poper p {
+  margin: 0px;
+}
+.image,
+.video,
+.files {
+  max-height: 220px !important;
+  height: 100vh !important;
+  object-fit: cover;
+  cursor: pointer;
+}
+.files {
+  max-height: 180px !important;
+}
+.video {
+  max-height: 180px !important;
+}
+.photoDownloadBtn,
+.videoDownloadBtn,
+.fileDownloadBtn {
+  position: absolute;
+  right: 0px;
+  top: 0px;
+  background-color: black;
+  border-radius: 50%;
+}
+.fileDownloadBtn {
+  background-color: white;
+}
+.filesHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.musicDownloadBtn {
+  position: absolute;
+  right: 0px;
+  top: 0px;
+}
+.image {
+  max-height: 250px !important;
+}
+@media (max-width: 600px) {
+  .css-i4bv87-MuiSvgIcon-root,
+  .css-1wxstni-MuiSvgIcon-root {
+    font-size: 18px !important;
+  }
+}
+
+@media (max-width: 600px) {
+  .image {
+    max-height: 150px !important;
+  }
+  .video {
+    max-height: 140px !important;
+  }
+  .files {
+    max-height: 140px !important;
+    height: 100vh !important;
+    object-fit: cover;
+  }
+}

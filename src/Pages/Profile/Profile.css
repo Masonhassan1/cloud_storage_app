@@ -1,0 +1,71 @@
+.profileContainer {
+  max-width: 500px;
+  width: 100%;
+}
+.profilePicUpload {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 20px 0;
+}
+.profileInputs {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+.ProfilePassword {
+  max-width: 400px;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  padding-bottom: 20px;
+  background-color: white;
+}
+
+.ProfileOptionMobileView {
+  display: none;
+  float: right;
+  margin-right: -15px;
+}
+.profileDltBtn {
+  display: block;
+  float: right;
+}
+
+.dialogBoxBtn {
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+}
+.profileTitle {
+  text-align: center;
+  font-family: "poppins";
+  padding: 20px;
+  padding-top: 0px;
+  color: navy;
+}
+.profileUpdate h4 {
+  font-family: "Varela Round";
+}
+@media (max-width: 1000px) {
+  .ProfileOptionMobileView {
+    display: block;
+  }
+  .profileDltBtn {
+    display: none;
+  }
+  .profileContainer {
+    width: 100%;
+    margin-top: 0px;
+    position: unset;
+    transform: translate(0%, 0%);
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    box-shadow: unset;
+    padding: 20px;
+  }
+  .profile {
+    background-color: white;
+  }
+}
