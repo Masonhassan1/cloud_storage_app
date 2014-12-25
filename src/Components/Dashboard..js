@@ -94,7 +94,7 @@ function Dashboard(props) {
       </div>
       <Divider />
       <List>
-        <NewFile />
+        <NewFile handleDrawerToggle={handleDrawerToggle} />
       </List>
       <Divider />
       <List>
@@ -113,7 +113,7 @@ function Dashboard(props) {
                 <InsertDriveFileIcon />
               )}
             </ListItemIcon>
-            <ListItemText primary={item.name} />
+            <ListItemText onClick={handleDrawerToggle} primary={item.name} />
           </ListItem>
         ))}
       </List>

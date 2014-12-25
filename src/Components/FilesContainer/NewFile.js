@@ -24,7 +24,7 @@ import {
 } from "../../Redux/action/fileAction";
 import { BASEURL } from "../../Url";
 //add new files
-function NewFile() {
+function NewFile({ handleDrawerToggle }) {
   const [open, setOpen] = useState(false); //dialog box
   const [file, setFile] = useState(null); //file
   const [progress, setProgress] = useState(0); //progress of uploading
@@ -34,6 +34,7 @@ function NewFile() {
   const dispatch = useDispatch();
   const handleClickOpen = () => {
     setOpen(true);
+    handleDrawerToggle();
   };
 
   const handleClose = () => {
